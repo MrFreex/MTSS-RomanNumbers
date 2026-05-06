@@ -17,7 +17,8 @@ public class IntegerToRoman {
    * Method that converts an integer number to a roman number
    * @param number the integer number to convert
    * @return the roman number as a string
-   * @throws IllegalArgumentException if the number is less than 1 or greater than 8 (bigger numbers not implemented yet)
+   * @throws IllegalArgumentException if the number is less than 1 or greater than 8 
+   * (bigger numbers not implemented yet)
    */
   public static String convert(int number){
     if (number < 1 || number > MAX_VALUE) {
