@@ -33,6 +33,10 @@ jobs:
           cache: "maven"
       - name: Check style with Maven
         run: mvn checkstyle:check
+
+      - name: JaCoCo Coverage
+        run: mvn jacoco:report
+
       - name: Invia i dati a Coveralls
         uses: coverallsapp/github-action@v2
         with:
