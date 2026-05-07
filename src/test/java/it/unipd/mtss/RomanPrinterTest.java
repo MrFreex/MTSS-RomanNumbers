@@ -6,8 +6,9 @@ package it.unipd.mtss;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RomanPrinterTest {
 
@@ -137,15 +138,12 @@ public class RomanPrinterTest {
         assertEquals(righeAttese, lineeGenerate.length);
     }
 
-    @Test(expected = InvocationTargetException.class)
+    @Test
     public void testStampaAsciiArt_ConInputNullo_DeveLanciareEccezione() throws Exception {
         // Arrange
         String input = null;
         
-        // Act
-        invokePrintAsciiArt(input);
-        
-        // Assert
-        // L'asserzione è gestita dall'annotazione @Test(expected = ...) che verifica la presenza dell'eccezione lanciata dalla Reflection.
+        // Act & Assert
+        assertThrows(InvocationTargetException.class, () -> invokePrintAsciiArt(input));
     }
 }
