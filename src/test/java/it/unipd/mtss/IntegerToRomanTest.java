@@ -31,7 +31,13 @@ public class IntegerToRomanTest {
         "88, LXXXVIII",
         "90, XC",
         "100, C",
-        "388, CCCLXXXVIII"
+        "388, CCCLXXXVIII",
+        "399, CCCXCIX",
+        "400, CD",
+        "444, CDXLIV",
+        "499, CDXCIX",
+        "887, DCCCLXXXVII",
+        "888, DCCCLXXXVIII",
     })
     public void testConvert(int input, String expectedOutput) {
         // AAA: Act
