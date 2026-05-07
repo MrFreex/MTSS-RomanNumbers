@@ -1,17 +1,32 @@
+////////////////////////////////////////////////////////////////////
+// Alessandro Monni 2138005
+// Filippo Lissandrin 2137980
+////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
 
-import it.unipd.mtss.IntegerToRoman;
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class IntegerToRomanTest {
-    @Test
-    public void testOneToThree() {
-        int[] test = { 1, 2, 3 };
-        String[] output = { "I", "II", "III" };
 
-        for (int i = 0; i < test.length; i++) {
-            assertEquals(output[i], IntegerToRoman.convert(test[i]));
-        }
+    @ParameterizedTest
+    @CsvSource({
+        "1, I",
+        "2, II",
+        "3, III",
+        "4, IV",
+        "5, V",
+        "6, VI",
+        "7, VII",
+        "8, VIII"
+    })
+    public void testConvert_ValidIntegers_ReturnsRoman(int input, String expected) {
+        // Il framework gestisce l'Arrange implicitamente tramite i parametri
+        // Act
+        String actual = IntegerToRoman.convert(input);
+        
+        // Assert
+        assertEquals(expected, actual);
     }
 }
