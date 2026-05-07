@@ -15,35 +15,44 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class IntegerToRomanTest {
     @ParameterizedTest(name = "Test {index}: convert({0}) = {1}")
     @CsvSource({
+        // Solo I
         "1, I",       
         "2, II",      
-        "3, III",     
+        "3, III",
+        // Con la V     
         "4, IV",
         "5, V",
         "6, VI",
         "7, VII",
         "8, VIII",
+        // Con la X
         "9, IX",
         "10, X",
         "14, XIV",
         "19, XIX",
         "38, XXXVIII",
+        "39, XXXIX",
+        // Con la L
         "40, XL",
         "44, XLIV",
         "49, XLIX",
         "50, L",
         "88, LXXXVIII",
+        "89, LXXXIX",
+        // Con la C
         "90, XC",
         "99, XCIX",
         "100, C",
         "144, CXLIV",
         "388, CCCLXXXVIII",
         "399, CCCXCIX",
+        // Con la D
         "400, CD",
         "444, CDXLIV",
         "499, CDXCIX",
         "887, DCCCLXXXVII",
         "888, DCCCLXXXVIII",
+        "899, DCCCXCIX"
     })
     public void testConvert(int input, String expectedOutput) {
         // AAA: Act

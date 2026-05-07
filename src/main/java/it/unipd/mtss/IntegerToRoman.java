@@ -12,7 +12,7 @@ package it.unipd.mtss;
 public class IntegerToRoman {
   static final String[] UNITS = {"D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV","I"};
   static final int[] UNIT_VALUES = {500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-  static final int MAX_VALUE = 888;
+  static final int MAX_VALUE = 899;
   /**
    * Method that converts an integer number to a roman number
    * @param number the integer number to convert
