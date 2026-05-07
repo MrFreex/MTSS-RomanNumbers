@@ -10,9 +10,9 @@ package it.unipd.mtss;
  * @author Filippo Lissandrin
  */
 public class IntegerToRoman {
-  static final String[] UNITS = {"L", "XL", "X", "IX", "V", "IV","I"};
-  static final int[] UNIT_VALUES = {50, 40, 10, 9, 5, 4, 1};
-  static final int MAX_VALUE = 88;
+  static final String[] UNITS = {"C", "XC", "L", "XL", "X", "IX", "V", "IV","I"};
+  static final int[] UNIT_VALUES = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+  static final int MAX_VALUE = 388;
   /**
    * Method that converts an integer number to a roman number
    * @param number the integer number to convert
