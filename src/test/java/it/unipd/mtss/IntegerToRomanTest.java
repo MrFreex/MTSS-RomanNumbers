@@ -20,7 +20,10 @@ public class IntegerToRomanTest {
         "5, V",
         "6, VI",
         "7, VII",
-        "8, VIII"
+        "8, VIII",
+        "9, IX",
+        "10, X",
+        "38, XXXVIII"
     })
     public void testConvert(int input, String expectedOutput) {
         // AAA: Act (Esecuzione dell'azione)
