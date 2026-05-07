@@ -52,7 +52,17 @@ public class IntegerToRomanTest {
         "499, CDXCIX",
         "887, DCCCLXXXVII",
         "888, DCCCLXXXVIII",
-        "899, DCCCXCIX"
+        "899, DCCCXCIX",
+        // Con la M
+        "900, CM",
+        "999, CMXCIX",
+        "980, CMLXXX",
+        "950, CML",
+        "930, CMXXX",
+        "920, CMXX",
+        "910, CMX",
+        "990, CMXC",
+        "1000, M"
     })
     public void testConvert(int input, String expectedOutput) {
         // AAA: Act
@@ -132,7 +142,7 @@ public class IntegerToRomanTest {
         // AAA: Arrange
         int max = IntegerToRoman.MAX_VALUE;
         // Solo caratteri ammessi fino a 888 (manca la M)
-        String validCharsRegex = "^[IVXLCD]+$";
+        String validCharsRegex = "^[IVXLCDM]+$";
 
         for (int i = 1; i <= max; i++) {
             // AAA: Act
