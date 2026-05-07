@@ -4,29 +4,46 @@
 ////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+import java.util.Collection;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
+@RunWith(Parameterized.class)
 public class IntegerToRomanTest {
 
-    @ParameterizedTest
-    @CsvSource({
-        "1, I",
-        "2, II",
-        "3, III",
-        "4, IV",
-        "5, V",
-        "6, VI",
-        "7, VII",
-        "8, VIII"
-    })
-    public void testConvert_ValidIntegers_ReturnsRoman(int input, String expected) {
-        // Il framework gestisce l'Arrange implicitamente tramite i parametri
-        // Act
-        String actual = IntegerToRoman.convert(input);
-        
-        // Assert
-        assertEquals(expected, actual);
+    // Arrange implicito
+    private int input;
+    private String expectedOutput;
+
+    public IntegerToRomanTest(int input, String expectedOutput) {
+        this.input = input;
+        this.expectedOutput = expectedOutput;
+    }
+
+    @Parameters(name = "Test {index}: convert({0}) = {1}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] {
+            { 1, "I" },       
+            { 2, "II" },      
+            { 3, "III" },     
+            { 4, "IV" },
+            { 5, "V" },
+            { 6 , "VI" },
+            { 7, "VII" },
+            { 8, "VIII" }
+        });
+    }
+
+    @Test
+    public void testConvert() {
+        // AAA: Act (Esecuzione dell'azione)
+        String actualOutput = IntegerToRoman.convert(input);
+
+        // AAA: Assert (Verifica del risultato)
+        assertEquals(expectedOutput, actualOutput);
     }
 }

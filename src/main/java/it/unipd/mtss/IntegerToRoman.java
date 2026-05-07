@@ -10,8 +10,8 @@ package it.unipd.mtss;
  * @author Filippo Lissandrin
  */
 public class IntegerToRoman {
-  static final String[] UNITS = {"V", "I"};
-  static final int[] UNIT_VALUES = {5, 1};
+  static final String[] UNITS = {"V", "IV","I"};
+  static final int[] UNIT_VALUES = {5, 4, 1};
   static final int MAX_VALUE = 8;
   /**
    * Method that converts an integer number to a roman number
