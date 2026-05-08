@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RomanPrinterTest {
 
     /**
-     * Metodo di supporto che usa la Reflection per testare il metodo privato.
+     * Helper method that uses Reflection to test the private method.
      */
     private String invokePrintAsciiArt(String input) throws Exception {
         Method method = RomanPrinter.class.getDeclaredMethod("printAsciiArt", String.class);
@@ -22,7 +22,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConUnSingoloCarattereValido_DeveRestituireLaRappresentazioneCorretta() 
+    public void testPrintAsciiArt_WithSingleValidCharacter_ShouldReturnCorrectRepresentation() 
             throws Exception {
         // Arrange
         String input = "I";
@@ -42,7 +42,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConPiuCaratteriValidi_DeveAffiancarliCorrettamente() throws Exception {
+    public void testPrintAsciiArt_WithMultipleValidCharacters_ShouldPlaceThemCorrectly() throws Exception {
         // Arrange
         String input = "VI";
         String expected = 
@@ -61,7 +61,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConCaratteriRipetuti_DeveStamparliTuttiCorrettamente() throws Exception {
+    public void testPrintAsciiArt_WithRepeatedCharacters_ShouldPrintAllCorrectly() throws Exception {
         // Arrange
         String input = "III";
         String expected = 
@@ -80,7 +80,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConStringaVuota_DeveRestituireSoloRitorniACapo() throws Exception {
+    public void testPrintAsciiArt_WithEmptyString_ShouldReturnOnlyNewlines() throws Exception {
         // Arrange
         String input = "";
         String expected = "\n\n\n\n\n"; 
@@ -93,7 +93,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConCaratteriNonValidi_DeveIgnorarli() throws Exception {
+    public void testPrintAsciiArt_WithInvalidCharacters_ShouldIgnoreThem() throws Exception {
         // Arrange
         String input = "IZ"; 
         String expected = 
@@ -112,7 +112,7 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConCaratteriMinuscoli_DeveIgnorarliTrattandoliComeNonValidi() throws Exception {
+    public void testPrintAsciiArt_WithLowercaseCharacters_ShouldIgnoreThemAsInvalid() throws Exception {
         // Arrange
         String input = "iv";
         String expected = "\n\n\n\n\n"; 
@@ -125,21 +125,21 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testStampaAsciiArt_ConTuttiICaratteriValidi_DeveElaborareSeiRighe() throws Exception {
+    public void testPrintAsciiArt_WithAllValidCharacters_ShouldProcessSixLines() throws Exception {
         // Arrange
         String input = "IVXLCDM";
-        int righeAttese = 6;
+        int expectedLines = 6;
         
         // Act
         String actual = invokePrintAsciiArt(input);
-        String[] lineeGenerate = actual.split("\n");
+        String[] generatedLines = actual.split("\n");
         
         // Assert
-        assertEquals(righeAttese, lineeGenerate.length);
+        assertEquals(expectedLines, generatedLines.length);
     }
 
     @Test
-    public void testStampaAsciiArt_ConInputNullo_DeveLanciareEccezione() throws Exception {
+    public void testPrintAsciiArt_WithNullInput_ShouldThrowException() throws Exception {
         // Arrange
         String input = null;
         

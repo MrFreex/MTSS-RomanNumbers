@@ -15,45 +15,45 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class IntegerToRomanTest {
     @ParameterizedTest(name = "Test {index}: convert({0}) = {1}")
     @CsvSource({
-        // Solo I
+        // Just I
         "1, I",       
         "2, II",      
         "3, III",
-        // Con la V     
+        // With V     
         "4, IV",
         "5, V",
         "6, VI",
         "7, VII",
         "8, VIII",
-        // Con la X
+        // With X
         "9, IX",
         "10, X",
         "14, XIV",
         "19, XIX",
         "38, XXXVIII",
         "39, XXXIX",
-        // Con la L
+        // With L
         "40, XL",
         "44, XLIV",
         "49, XLIX",
         "50, L",
         "88, LXXXVIII",
         "89, LXXXIX",
-        // Con la C
+        // With C
         "90, XC",
         "99, XCIX",
         "100, C",
         "144, CXLIV",
         "388, CCCLXXXVIII",
         "399, CCCXCIX",
-        // Con la D
+        // With D
         "400, CD",
         "444, CDXLIV",
         "499, CDXCIX",
         "887, DCCCLXXXVII",
         "888, DCCCLXXXVIII",
         "899, DCCCXCIX",
-        // Con la M
+        // With M
         "900, CM",
         "999, CMXCIX",
         "980, CMLXXX",
@@ -82,7 +82,7 @@ public class IntegerToRomanTest {
             
             // AAA: Assert
             assertFalse(roman.matches(".*(.)\\1{3,}.*"), 
-                "Il numero " + i + " (" + roman + ") viola la regola delle 3 ripetizioni");
+                "The number " + i + " (" + roman + ") violates 3-rep rule");
         }
     }
 
@@ -94,7 +94,7 @@ public class IntegerToRomanTest {
         // AAA: Act & Assert 
         assertThrows(IllegalArgumentException.class, () -> {
             IntegerToRoman.convert(invalidInput);
-        }, "Dovrebbe lanciare IllegalArgumentException per 0");
+        }, "Should throw IllegalArgumentException for 0");
     }
 
     @Test
@@ -105,7 +105,7 @@ public class IntegerToRomanTest {
         // AAA: Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
             IntegerToRoman.convert(invalidInput);
-        }, "Dovrebbe lanciare IllegalArgumentException per numeri oltre il limite");
+        }, "Should throw IllegalArgumentException for numbers above limit");
     }
 
     @Test
@@ -116,7 +116,7 @@ public class IntegerToRomanTest {
         // AAA: Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
             IntegerToRoman.convert(invalidInput);
-        }, "Dovrebbe lanciare IllegalArgumentException per numeri negativi");
+        }, "Should throw IllegalArgumentException for negative numbers");
     }
 
     @Test
@@ -132,7 +132,7 @@ public class IntegerToRomanTest {
                     IntegerToRoman.convert(i);
                 }
             }, 
-            "Performance deludente (over 100ms)"
+            "Bad performance (over 100ms)"
         );
     }
 
@@ -151,7 +151,7 @@ public class IntegerToRomanTest {
             // AAA: Assert
             org.junit.jupiter.api.Assertions.assertTrue(
                 roman.matches(validCharsRegex),
-                "Il risultato per " + i + " (" + roman + ") contiene caratteri non ammessi"
+                "The result for input " + i + " (" + roman + ") contains disallowed characters."
             );
         }
     }
