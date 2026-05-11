@@ -10,6 +10,7 @@ package it.unipd.mtss;
  * Utility class for printing Roman numbers as ASCII art.
  * It takes an integer, converts it to a Roman numeral string, 
  * and then generates a multi-line ASCII representation.
+ * @author Alessandro Monni
  */
 public class RomanPrinter {
   private static final String[] CHAR_I = {
