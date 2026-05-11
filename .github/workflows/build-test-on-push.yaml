@@ -17,11 +17,14 @@ jobs:
           java-version: "21"
           cache: "maven"
 
-      - name: Build and test with Maven
-        run: mvn -B test --file pom.xml
+      - name: Build project
+        run: mvn compile
 
-      - name: Check style with Maven
-        run: mvn checkstyle:check
+      - name: Test project
+        run: mvn test
+
+      - name: Static Analysis
+        run: mvn package
 
       - name: JaCoCo Coverage
         run: mvn jacoco:report
